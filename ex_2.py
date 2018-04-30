@@ -12,11 +12,13 @@ def convert(lst,b1,b2):
             L.append(l)
         return [i for i in L[::-1]]
     elif b1==2:
-        #lst=lst[::-1]
-        for k in range(len(lst)-1,0,-1):
-            m=lst[k]*(b2**k)
-            L.append(m)
-        return L
+        sum=0
+        lst=lst[::-1]
+        for k in range(0,len(lst)):
+            sum+=lst[k]*b1**k
+        return sum
+    else:
+        return
 
 #main()
-print(convert([1,1,0,0],2,10))
+print(convert([1,1,1,1],2,10))
