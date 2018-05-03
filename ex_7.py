@@ -1,13 +1,27 @@
 def longestPalindrom(str):
 #returns the longest palindromic substring of given string
     max=''
-    for i in range(0,len(str)):
-        for j in range(0,len(str),-1):
-            if str[i]==str[j]:
-                if len(str[i:j])>len(max):
-                    max=str[i:j]
-                print(str[i:]+str[:j])
-    return max
+    #for i in range(0,len(str)):
+        #for j in range(0,len(str),-1):
+            #print(str[i])
+            #if str[i]==str[j]:
+                #if len(str[i:j])>len(max):
+                    #max=str[i:j]
+                    #print(str[i:]+str[:j])
+    #return max
+    l1=[]
+    l2=[]
+    for i in range((len(str)//2)+1):
+        l1.append(str[i])
+    for j in range(len(str)//2,len(str)):
+        l2.append(str[j])
+    if l1==l2[::-1]:
+        return str
+    elif l1==l1[::-1]:
+        return l1
+    elif l2==l2[::-1]:
+        return l2
+    return l1,l2
 
 def longestPalindrom2(str):
     i=0
@@ -19,9 +33,13 @@ def longestPalindrom2(str):
             max.append(str[i:j+1])
         i+=1
         j-=1
-    for i in max:
-        if len(i)>maxl:
-            maxl=len(i)
-        return i
+    return str[i:j+1]
+    #for i in max:
+        #if len(i)>maxl:
+            #maxl=len(i)
+        #return i
+
 #main
-print(longestPalindrom2("arab"))
+print(longestPalindrom('arbaba'))
+print(len('görög')//2)
+#print(longestPalindrom2("görög"))
