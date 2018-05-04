@@ -1,4 +1,7 @@
 def convert(lst,b1,b2):
+    for i in lst:
+        if i>=b1 or i>=b2:
+            return "Given numbers out of range."
     if b1!=10:
         B10=[]
         lst=lst[::-1]
