@@ -1,45 +1,33 @@
-def longestPalindrom(str):
-#returns the longest palindromic substring of given string
-    max=''
-    #for i in range(0,len(str)):
-        #for j in range(0,len(str),-1):
-            #print(str[i])
-            #if str[i]==str[j]:
-                #if len(str[i:j])>len(max):
-                    #max=str[i:j]
-                    #print(str[i:]+str[:j])
-    #return max
-    l1=[]
-    l2=[]
-    for i in range((len(str)//2)+1):
-        l1.append(str[i])
-    for j in range(len(str)//2,len(str)):
-        l2.append(str[j])
-    if l1==l2[::-1]:
-        return str
-    elif l1==l1[::-1]:
-        return l1
-    elif l2==l2[::-1]:
-        return l2
-    return l1,l2
+import string
 
-def longestPalindrom2(str):
-    i=0
-    j=len(str)-1
-    max=[]
-    maxl=0
-    while i<=len(str) and j>0:
-        if str[i]==str[j]:
-            max.append(str[i:j+1])
-        i+=1
-        j-=1
-    return str[i:j+1]
-    #for i in max:
-        #if len(i)>maxl:
-            #maxl=len(i)
-        #return i
+def isPalindrom(str):
+    if str[:]==str[::-1]:
+        return True
+    return False
+
+def strip(s):
+    unwanted=string.whitespace + string.punctuation
+    for ch in s:
+        if ch in unwanted:
+            s=s.replace(ch, '')
+    return s.lower()
+
+def substrings(s):
+    s=strip(s)
+    sublist=[]
+    palindromlist=[]
+    for list in range(1,len(s)+1):
+        for substr in range(0,list):
+            lst='L'+str(list)
+            lst=[]
+            lst.append(s[substr:list])
+            sublist.append(lst)
+    for p in sublist:
+        if isPalindrom(''.join(p)):
+            palindromlist.append(p[0])
+    return max(palindromlist, key=len)
 
 #main
-print(longestPalindrom('arbaba'))
-print(len('görög')//2)
-#print(longestPalindrom2("görög"))
+#print(isPalindrom('aba'))
+print(substrings('görög'))
+#print(strip('Madam I\'m Adam'))
