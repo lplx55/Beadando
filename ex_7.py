@@ -28,6 +28,6 @@ def substrings(s):
     return max(palindromlist, key=len)
 
 #main
-#print(isPalindrom('aba'))
 print(substrings('görög'))
-#print(strip('Madam I\'m Adam'))
+#print(substrings('Madam I\'m Adam'))
+#print(substrings('Alabama'))
