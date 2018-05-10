@@ -21,5 +21,5 @@ def convert(lst,b1,b2):
     return L[::-1]
 
 
-#main()
+#main
 print(convert([1,2,4,1],5,7))
