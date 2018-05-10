@@ -7,11 +7,11 @@ def tupleToList(lst):
 signs=['+','-','']
 numbers=[i for i in range(1,10)]
 options=[]
-signlist=[list(p) for p in itertools.product(signs,repeat=8)]
+signlist=[list(p) for p in itertools.product(signs,repeat=8)]   #creates lists of all possible permutations of the 3 signs
 num=0
 while num <9:
     for combinations in signlist:
-        options=list(zip(numbers,combinations))
+        options=list(zip(numbers,combinations))     #tuples of numbers and signs
         options.append((9,''))
         options=tupleToList(options)
         a = ''.join(str(x) for x in options)
